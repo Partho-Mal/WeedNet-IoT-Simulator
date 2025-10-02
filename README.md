@@ -1,69 +1,62 @@
-# WeedNet-IoT-Simulator: Herbicide-based Weed Management
+# WeedNet-IoT-Simulator  
+**Smart Weed Control. Less Spray. Less Data.**  
 
-A proof-of-concept **software simulator** for a precision agriculture IoT system. This demo showcases bandwidth-efficient image transmission and targeted herbicide application using a novel **Graph-Based Image Compression** technique.
+A proof-of-concept **software simulator** for futuristic farming.  
+It demonstrates how **Graph-Based Image Compression** combined with an **IoT packet network** can save both **herbicide** and **bandwidth** by transmitting only what matters — the weeds.  
 
-**Objective:** To maximize herbicide and bandwidth savings by only transmitting the necessary information (weed locations) across a distributed drone/sensor network.
+---
 
-## Demo Workflow (The Sci-Fi Visualization)
+## How It Works  
 
-The project runs as a step-by-step simulation, visualized live using **Streamlit** and **Matplotlib/NetworkX** with a **dark, neon-themed aesthetic**.
+1. **Weed Detection** – Load farm image and create a quick binary weed mask.  
+2. **Compression** – Split into superpixels, merge background, keep only weed nodes.  
+3. **Transmission** – Send compressed chunks as packets across a simulated IoT network.  
+4. **Targeted Spraying** – Sprayer node receives weed packets and applies herbicide only where needed.  
+5. **Scoreboard** – Live dashboard shows efficiency metrics.  
 
-1. **Input & Detection:** A farm image is loaded, and a binary **Weed Mask** is generated using a quick color-thresholding algorithm.
-2. **Graph Generation & Compression:**
-   * The image is segmented into **Superpixels (Nodes)**.
-   * A custom compression algorithm identifies weed areas and merges all non-weed areas into large, efficient **Background Nodes**.
-   * This compressed data is stored, and the reduction is calculated.
-3. **Data Transmission Simulation:** The compressed data chunks (background blobs, weed segments) are routed as **Packets** through a simulated IoT network (Sensors, Relays, Sprayer). **The animated packet flow visualizes bandwidth efficiency.**
-4. **Targeted Spraying:** Upon receiving a weed packet, the final **Sprayer Node** simulates a targeted herbicide pulse overlay on the original image.
-5. **Scoreboard:** Real-time metrics are displayed to quantify the system's efficiency.
+*(Visualization built with Streamlit + Matplotlib in a dark neon theme.)*  
 
-## Key Features
+---
 
-* **Novel Compression:** Graph-based approach reduces redundant background data transmission, achieving high **Compression Ratios**.
-* **IoT Simulation:** Uses **NetworkX** to model complex node networks and animate the flow of data packets.
-* **Targeted Control:** Calculates and visualizes precise **Herbicide Savings** versus traditional broadcast spraying.
+## Key Features  
 
-## Installation & Running
+- **Graph-Based Compression** – Removes redundant background data.  
+- **IoT Network Simulation** – Visualizes packet flow across sensors, relays, and sprayers.  
+- **Precision Spraying** – Demonstrates herbicide savings compared to broadcast spraying.  
 
-### 1. Prerequisites
+---
 
-You need Python 3.8+ installed.
+## Quickstart  
 
-### 2. Setup
-
-Clone the repository and install the dependencies in a virtual environment:
-
-```
-# Clone the repository
+```bash
 git clone https://github.com/[Your-Username]/WeedNet-IoT-Simulator.git
 cd WeedNet-IoT-Simulator
-
-# Install necessary Python packages
 pip install -r requirements.txt
-```
-
-### 3. Running the Application
-
-Launch the Streamlit app:
-
-```
 streamlit run app.py
 ```
 
 ---
 
-## Simulation Stats Scoreboard
+## The Scoreboard  
 
-The demo prominently displays these three metrics:
+``` 
+| Metric            | Meaning                                  |
+|-------------------|------------------------------------------|
+| Compression Ratio | Initial Bytes ÷ Compressed Bytes          |
+| Bandwidth Saved   | % of data skipped in transmission         |
+| Herbicide Saved   | % of land left untouched by spray         |
 
-| Metric             | Description                                                                 |
-|--------------------|-----------------------------------------------------------------------------|
-| Compression Ratio  | Measures the reduction in data size (Initial Bytes / Compressed Bytes).     |
-| Bandwidth Saved    | Percentage of data transmission avoided by using the compression method.    |
-| Herbicide Saved    | Percentage of the total field area that was not sprayed, showcasing precision. |
+```
 
 ---
 
-## Export to Sheets
+## Export Options  
 
-(Metrics can optionally be exported to CSV/Google Sheets for further analysis.)
+```
+Results can be saved to CSV or Google Sheets for analysis and reporting.
+```
+
+---
+
+**Not just a simulation. Not just code.  
+This is a preview of how future farming could look.**  
